@@ -1,0 +1,81 @@
+@import "tailwindcss";
+/* @import '@/styles/theme.css'; */
+
+:root {
+  --background-primary: #ffffff;
+  --background-secondary: #f3f4f6;
+  --background-tertiary: #e5e7eb;
+  
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  
+  --border-color: #e5e7eb;
+  --hover-color: #f3f4f6;
+  
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+}
+
+.dark {
+  --background-primary: #111827;
+  --background-secondary: #1f2937;
+  --background-tertiary: #374151;
+  
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-tertiary: #9ca3af;
+  
+  --border-color: #374151;
+  --hover-color: #1f2937;
+  
+  --accent-primary: #60a5fa;
+  --accent-hover: #3b82f6;
+  
+  --success-color: #34d399;
+  --error-color: #f87171;
+  --warning-color: #fbbf24;
+}
+
+body {
+  background: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+input, textarea, select {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  background-color: var(--background-tertiary);
+}
+button{
+  cursor: pointer;
+}
+
+.todo-list {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.todo-list:hover {
+  background-color: var(--hover-color);
+}
+
+.todo-list:focus {
+}
+
+.modal {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}

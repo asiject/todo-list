@@ -1,0 +1,98 @@
+:root {
+  /* 라이트 모드 기본 색상 */
+  --background-primary: #ffffff;
+  --background-secondary: #f3f4f6;
+  --background-tertiary: #e5e7eb;
+  
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  
+  --border-color: #e5e7eb;
+  --hover-color: #f3f4f6;
+  
+  --accent-primary: #3b82f6;
+  --accent-hover: #2563eb;
+  
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+}
+
+[data-theme='dark'] {
+  /* 다크 모드 기본 색상 */
+  --background-primary: #111827;
+  --background-secondary: #1f2937;
+  --background-tertiary: #374151;
+  
+  --text-primary: #f9fafb;
+  --text-secondary: #e5e7eb;
+  --text-tertiary: #9ca3af;
+  
+  --border-color: #374151;
+  --hover-color: #1f2937;
+  
+  --accent-primary: #60a5fa;
+  --accent-hover: #3b82f6;
+  
+  --success-color: #34d399;
+  --error-color: #f87171;
+  --warning-color: #fbbf24;
+}
+
+/* 공통 스타일 */
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 버튼 스타일 */
+.btn {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn:hover {
+  background-color: var(--hover-color);
+}
+
+/* 카드 스타일 */
+.card {
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* 입력 필드 스타일 */
+input, textarea, select {
+  background-color: var(--background-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-primary);
+}
+
+/* 링크 스타일 */
+a {
+  color: var(--accent-primary);
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* 상태 색상 */
+.text-success {
+  color: var(--success-color);
+}
+
+.text-error {
+  color: var(--error-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+} 
