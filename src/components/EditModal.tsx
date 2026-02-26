@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { todosAtom, isModalOpenAtom, editingTodoAtom } from '@/store/todo';
+import { todosAtomWithStorage, isModalOpenAtom, editingTodoAtom } from '@/store/todo';
 import { Todo } from '@/types/todo';
 
 export default function EditModal() {
-  const [todos, setTodos] = useAtom(todosAtom);
+  const [todos, setTodos] = useAtom(todosAtomWithStorage);
   const [isModalOpen, setIsModalOpen] = useAtom(isModalOpenAtom);
   const [editingTodo, setEditingTodo] = useAtom(editingTodoAtom);
   const [text, setText] = useState('');
