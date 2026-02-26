@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react';
-import { useAtom } from 'jotai';
-import { todosAtomWithStorage } from '@/store/todo';
+import { useTodos } from '@/hooks/useTodos';
 import { Todo } from '@/types/todo';
 import { format } from 'date-fns';
 
@@ -9,7 +8,7 @@ const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9
 export default function TodoInput() {
   const [text, setText] = useState('');
   const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
-  const [todos, setTodos] = useAtom(todosAtomWithStorage);
+  const { addTodo } = useTodos();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -23,7 +22,7 @@ export default function TodoInput() {
       date: selectedDate,
       completed: false,
     };
-    setTodos([...todos, newTodo]);
+    addTodo(newTodo);
     setText('');
     inputRef.current?.focus();
   };
