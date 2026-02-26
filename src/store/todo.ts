@@ -1,18 +1,6 @@
 import { atom } from 'jotai';
 import { Todo, ViewMode, TimeRange } from '@/types/todo';
-
-// localStorage에서 TODO 목록 불러오기
-const loadTodos = (): Todo[] => {
-  if (typeof window === 'undefined') return [];
-  const savedTodos = localStorage.getItem('todos');
-  return savedTodos ? JSON.parse(savedTodos) : [];
-};
-
-// TODO 목록을 localStorage에 저장하는 함수
-const saveTodos = (todos: Todo[]) => {
-  if (typeof window === 'undefined') return;
-  localStorage.setItem('todos', JSON.stringify(todos));
-};
+import { loadTodos, saveTodos } from '@/utils/storage';
 
 // atom 생성 시 초기값으로 localStorage의 데이터 사용
 export const todosAtom = atom<Todo[]>(loadTodos());
