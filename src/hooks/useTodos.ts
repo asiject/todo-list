@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { todosAtomWithStorage } from '@/store/todo';
+import { todosAtomWithStorage } from '@/store/todos';
 import type { Todo } from '@/types/todo';
 
 export function useTodos() {

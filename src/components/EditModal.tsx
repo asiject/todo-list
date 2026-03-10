@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useAtom } from 'jotai';
-import { todosAtomWithStorage, isModalOpenAtom, editingTodoAtom } from '@/store/todo';
-import { Todo } from '@/types/todo';
+import { todosAtomWithStorage } from '@/store/todos';
+import { isModalOpenAtom, editingTodoAtom } from '@/store/ui';
+import { useToast } from '@/hooks/useToast';
 
 export default function EditModal() {
   const [todos, setTodos] = useAtom(todosAtomWithStorage);
@@ -9,6 +10,7 @@ export default function EditModal() {
   const [editingTodo, setEditingTodo] = useAtom(editingTodoAtom);
   const [text, setText] = useState('');
   const [date, setDate] = useState('');
+  const { showToast } = useToast();
 
   useEffect(() => {
     if (editingTodo) {
@@ -23,13 +25,12 @@ export default function EditModal() {
 
     setTodos(
       todos.map((todo) =>
-        todo.id === editingTodo.id
-          ? { ...todo, text: text.trim(), date }
-          : todo
+        todo.id === editingTodo.id ? { ...todo, text: text.trim(), date } : todo
       )
     );
 
     handleClose();
+    showToast('할 일이 수정되었습니다.', 'success');
   };
 
   const handleClose = () => {

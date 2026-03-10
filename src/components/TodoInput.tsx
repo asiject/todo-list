@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useTodos } from '@/hooks/useTodos';
 import { Todo } from '@/types/todo';
 import { format } from 'date-fns';
+import { useToast } from '@/hooks/useToast';
 
 const generateId = () => `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
@@ -10,6 +11,7 @@ export default function TodoInput() {
   const [date, setDate] = useState(format(new Date(), 'yyyy-MM-dd'));
   const { addTodo } = useTodos();
   const inputRef = useRef<HTMLInputElement>(null);
+  const { showToast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,6 +27,7 @@ export default function TodoInput() {
     addTodo(newTodo);
     setText('');
     inputRef.current?.focus();
+    showToast('새 할 일이 추가되었습니다.', 'success');
   };
 
   return (
