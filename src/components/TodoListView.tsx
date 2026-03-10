@@ -14,6 +14,10 @@ export default function TodoListView({
   onEdit,
   onDelete,
 }: TodoListViewProps) {
+  if (!todos.length) {
+    return <p className="text-sm text-text-secondary">이 날짜에는 등록된 할 일이 없습니다.</p>;
+  }
+
   return (
     <div className="space-y-2">
       {todos.map((todo) => (
